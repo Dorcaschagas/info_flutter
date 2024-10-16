@@ -1,0 +1,157 @@
+Aqui estão alguns comandos do Git que você pode usar para diversas operações, como criar, excluir, alterar e atualizar arquivos ou repositórios:
+
+### 1. **Criar um Repositório Git**
+- Iniciar um repositório Git em uma pasta existente:
+  ```bash
+  git init
+  ```
+
+- Clonar um repositório remoto:
+  ```bash
+  git clone <url-do-repositório>
+  ```
+
+### 2. **Adicionar Arquivos**
+- Adicionar arquivos ao estágio (staging area):
+  ```bash
+  git add nome-do-arquivo
+  ```
+  Ou para adicionar todos os arquivos modificados:
+  ```bash
+  git add .
+  ```
+
+### 3. **Criar um Commit**
+- Criar um novo commit com os arquivos no estágio:
+  ```bash
+  git commit -m "Mensagem do commit"
+  ```
+
+### 4. **Excluir Arquivos**
+- Remover um arquivo do repositório e do diretório local:
+  ```bash
+  git rm nome-do-arquivo
+  ```
+
+- Remover um arquivo apenas do repositório (mantendo no diretório local):
+  ```bash
+  git rm --cached nome-do-arquivo
+  ```
+
+### 5. **Mover ou Renomear Arquivos**
+- Renomear um arquivo:
+  ```bash
+  git mv nome-antigo nome-novo
+  ```
+
+### 6. **Verificar o Status do Repositório**
+- Exibir o status dos arquivos no repositório:
+  ```bash
+  git status
+  ```
+
+### 7. **Ver o Histórico de Commits**
+- Exibir o histórico de commits:
+  ```bash
+  git log
+  ```
+
+- Ver o histórico de commits em uma linha:
+  ```bash
+  git log --oneline
+  ```
+
+### 8. **Criar e Alternar entre Branches**
+- Criar um novo branch:
+  ```bash
+  git branch nome-do-branch
+  ```
+
+- Alternar para um branch existente:
+  ```bash
+  git checkout nome-do-branch
+  ```
+
+- Criar e mudar para um novo branch de uma vez:
+  ```bash
+  git checkout -b nome-do-branch
+  ```
+
+### 9. **Mesclar Branches**
+- Mesclar outro branch no branch atual:
+  ```bash
+  git merge nome-do-branch
+  ```
+
+### 10. **Excluir Branches**
+- Excluir um branch local:
+  ```bash
+  git branch -d nome-do-branch
+  ```
+
+- Forçar a exclusão de um branch local (se não foi mesclado):
+  ```bash
+  git branch -D nome-do-branch
+  ```
+
+### 11. **Atualizar o Repositório (Pull e Push)**
+- Enviar commits locais para o repositório remoto:
+  ```bash
+  git push
+  ```
+
+- Baixar as últimas alterações do repositório remoto e mesclar:
+  ```bash
+  git pull
+  ```
+
+### 12. **Reverter Alterações**
+- Reverter arquivos modificados no diretório de trabalho para a última versão commitada:
+  ```bash
+  git checkout nome-do-arquivo
+  ```
+
+- Desfazer o último commit (mantendo as alterações no estágio):
+  ```bash
+  git reset --soft HEAD^
+  ```
+
+- Desfazer o último commit e também remover as alterações:
+  ```bash
+  git reset --hard HEAD^
+  ```
+
+### 13. **Diferenças entre Versões**
+- Ver as diferenças entre arquivos modificados e a última versão commitada:
+  ```bash
+  git diff
+  ```
+
+### 14. **Verificar Remotos**
+- Listar os repositórios remotos:
+  ```bash
+  git remote -v
+  ```
+
+- Adicionar um repositório remoto:
+  ```bash
+  git remote add origin <url-do-repositório>
+  ```
+
+- Alterar a URL de um repositório remoto:
+  ```bash
+  git remote set-url origin <nova-url-do-repositório>
+  ```
+
+### 15. **Stash (Guardar Alterações Temporariamente)**
+- Guardar alterações temporariamente sem fazer commit:
+  ```bash
+  git stash
+  ```
+
+- Aplicar as alterações guardadas:
+  ```bash
+  git stash apply
+  ```
+
+Esses comandos cobrem a maior parte das operações diárias no Git, desde o controle de versões até o gerenciamento de branches e remotos!
