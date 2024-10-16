@@ -1,0 +1,131 @@
+Aqui estão os tipos de campos mais comuns que você pode usar em um formulário no Flutter:
+
+### 1. **TextFormField** (`TextFormField`)
+   - Campo de entrada de texto simples.
+   - Aceita texto livre, senhas, e-mail, etc.
+   - Você pode definir o tipo de teclado (`keyboardType`) para diferentes propósitos.
+
+   ```dart
+   TextFormField(
+     decoration: InputDecoration(labelText: 'Nome'),
+   )
+   ```
+
+### 2. **TextFormField com máscara para senhas** (`obscureText`)
+   - Campo de entrada de senha, onde os caracteres são ocultados.
+
+   ```dart
+   TextFormField(
+     obscureText: true, // Para esconder o texto
+     decoration: InputDecoration(labelText: 'Senha'),
+   )
+   ```
+
+### 3. **TextFormField para números** (`keyboardType: TextInputType.number`)
+   - Campo de entrada numérica.
+
+   ```dart
+   TextFormField(
+     keyboardType: TextInputType.number, // Teclado numérico
+     decoration: InputDecoration(labelText: 'Idade'),
+   )
+   ```
+
+### 4. **TextFormField para e-mail** (`keyboardType: TextInputType.emailAddress`)
+   - Campo de entrada específico para e-mails, com teclado de e-mail.
+
+   ```dart
+   TextFormField(
+     keyboardType: TextInputType.emailAddress, // Teclado para e-mail
+     decoration: InputDecoration(labelText: 'E-mail'),
+   )
+   ```
+
+### 5. **TextFormField para telefone** (`keyboardType: TextInputType.phone`)
+   - Campo de entrada específico para números de telefone.
+
+   ```dart
+   TextFormField(
+     keyboardType: TextInputType.phone, // Teclado para telefone
+     decoration: InputDecoration(labelText: 'Telefone'),
+   )
+   ```
+
+### 6. **DropdownButtonFormField**
+   - Campo de seleção com várias opções, que permite ao usuário escolher uma opção a partir de um menu suspenso.
+
+   ```dart
+   DropdownButtonFormField<String>(
+     items: [
+       DropdownMenuItem(value: 'opcao1', child: Text('Opção 1')),
+       DropdownMenuItem(value: 'opcao2', child: Text('Opção 2')),
+     ],
+     onChanged: (value) {},
+     decoration: InputDecoration(labelText: 'Escolha uma opção'),
+   )
+   ```
+
+### 7. **CheckboxFormField** (Checkbox em conjunto com `FormField`)
+   - Caixa de seleção para valores booleanos (verdadeiro ou falso).
+
+   ```dart
+   CheckboxListTile(
+     title: Text('Aceitar Termos'),
+     value: aceitouTermos,
+     onChanged: (newValue) {
+       setState(() {
+         aceitouTermos = newValue!;
+       });
+     },
+   )
+   ```
+
+### 8. **RadioListTile**
+   - Botões de rádio para selecionar uma única opção de um grupo de opções.
+
+   ```dart
+   RadioListTile<int>(
+     title: Text('Opção 1'),
+     value: 1,
+     groupValue: valorSelecionado,
+     onChanged: (newValue) {
+       setState(() {
+         valorSelecionado = newValue!;
+       });
+     },
+   )
+   ```
+
+### 9. **SwitchListTile**
+   - Um switch (botão de ligar/desligar) para valores booleanos.
+
+   ```dart
+   SwitchListTile(
+     title: Text('Ativar notificações'),
+     value: ativarNotificacoes,
+     onChanged: (newValue) {
+       setState(() {
+         ativarNotificacoes = newValue;
+       });
+     },
+   )
+   ```
+
+### 10. **DatePickerFormField** (Utilizando `showDatePicker`)
+   - Seleção de data utilizando o componente de calendário.
+
+   ```dart
+   ElevatedButton(
+     child: Text('Escolha uma data'),
+     onPressed: () async {
+       DateTime? pickedDate = await showDatePicker(
+         context: context,
+         initialDate: DateTime.now(),
+         firstDate: DateTime(2000),
+         lastDate: DateTime(2100),
+       );
+     },
+   )
+   ```
+
+Esses são os tipos de campos mais usados em formulários no Flutter, abrangendo entrada de texto, numérica, opções de seleção, caixas de seleção, botões de rádio e seletores de data.

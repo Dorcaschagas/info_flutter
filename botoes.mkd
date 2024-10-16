@@ -1,0 +1,165 @@
+No Flutter, há vários tipos de botões que podem ser usados para diferentes ações e interações. Aqui estão os principais tipos de botões e exemplos de como usá-los:
+
+### 1. **ElevatedButton**
+   - Botão elevado (com sombra), ideal para destacar uma ação principal.
+
+   ```dart
+   ElevatedButton(
+     onPressed: () {
+       // Ação a ser executada
+     },
+     child: Text('Elevated Button'),
+   )
+   ```
+
+### 2. **TextButton**
+   - Botão plano, sem sombra ou elevação, geralmente usado para ações menos importantes ou opções secundárias.
+
+   ```dart
+   TextButton(
+     onPressed: () {
+       // Ação
+     },
+     child: Text('Text Button'),
+   )
+   ```
+
+### 3. **OutlinedButton**
+   - Botão com uma borda ao redor, normalmente usado para ações que precisam de menos destaque, mas ainda com alguma separação visual.
+
+   ```dart
+   OutlinedButton(
+     onPressed: () {
+       // Ação
+     },
+     child: Text('Outlined Button'),
+   )
+   ```
+
+### 4. **IconButton**
+   - Botão com um ícone ao invés de texto. Pode ser utilizado para ações rápidas, como abrir menus ou editar algo.
+
+   ```dart
+   IconButton(
+     icon: Icon(Icons.settings),
+     onPressed: () {
+       // Ação
+     },
+   )
+   ```
+
+### 5. **FloatingActionButton (FAB)**
+   - Um botão circular geralmente usado para destacar a ação principal de um aplicativo. Normalmente flutua sobre a interface e é muito utilizado no design de apps.
+
+   ```dart
+   FloatingActionButton(
+     onPressed: () {
+       // Ação
+     },
+     child: Icon(Icons.add),
+   )
+   ```
+
+### 6. **DropdownButton**
+   - Botão que abre uma lista suspensa de opções quando clicado.
+
+   ```dart
+   DropdownButton<String>(
+     value: 'Opção 1',
+     items: [
+       DropdownMenuItem(value: 'Opção 1', child: Text('Opção 1')),
+       DropdownMenuItem(value: 'Opção 2', child: Text('Opção 2')),
+     ],
+     onChanged: (newValue) {
+       // Ação
+     },
+   )
+   ```
+
+### 7. **PopupMenuButton**
+   - Botão que abre um menu suspenso com várias opções, muito usado para configurações ou ações extras.
+
+   ```dart
+   PopupMenuButton<String>(
+     onSelected: (value) {
+       // Ação
+     },
+     itemBuilder: (context) => [
+       PopupMenuItem(value: 'Editar', child: Text('Editar')),
+       PopupMenuItem(value: 'Excluir', child: Text('Excluir')),
+     ],
+   )
+   ```
+
+### 8. **BackButton**
+   - Botão pré-estilizado para voltar à página anterior, geralmente usado em `AppBar`.
+
+   ```dart
+   BackButton(
+     onPressed: () {
+       Navigator.pop(context);
+     },
+   )
+   ```
+
+### 9. **CloseButton**
+   - Um botão com um ícone de "fechar" (`X`), usado para fechar modais ou retornar de telas.
+
+   ```dart
+   CloseButton(
+     onPressed: () {
+       // Fechar ou sair da tela
+     },
+   )
+   ```
+
+### 10. **InkWell**
+   - Um widget que pode ser usado para criar botões personalizados com animação de toque (efeito ripple), útil para criar botões em formas personalizadas.
+
+   ```dart
+   InkWell(
+     onTap: () {
+       // Ação
+     },
+     child: Container(
+       padding: EdgeInsets.all(12.0),
+       child: Text('InkWell Button'),
+     ),
+   )
+   ```
+
+### 11. **GestureDetector**
+   - Um widget mais flexível do que o `InkWell`, que permite detectar vários tipos de gestos, como toques, arrastos, e outros.
+
+   ```dart
+   GestureDetector(
+     onTap: () {
+       // Ação ao tocar
+     },
+     child: Container(
+       padding: EdgeInsets.all(12.0),
+       child: Text('GestureDetector Button'),
+     ),
+   )
+   ```
+
+### 12. **ButtonBar**
+   - Um contêiner que organiza botões horizontalmente com espaçamento, útil para alinhar vários botões em um layout.
+
+   ```dart
+   ButtonBar(
+     alignment: MainAxisAlignment.center,
+     children: [
+       ElevatedButton(
+         onPressed: () {},
+         child: Text('Salvar'),
+       ),
+       OutlinedButton(
+         onPressed: () {},
+         child: Text('Cancelar'),
+       ),
+     ],
+   )
+   ```
+
+Esses são os botões mais comuns no Flutter, com diferentes usos para interações do usuário, desde ações principais com `ElevatedButton` até ações mais discretas com `TextButton` ou `IconButton`.

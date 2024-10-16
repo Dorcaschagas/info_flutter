@@ -1,0 +1,107 @@
+No Flutter, a navegação entre páginas é feita com o uso de **rotas** e o **Navigator**. Aqui estão alguns dos métodos principais para realizar navegação entre telas:
+
+### 1. **Navegação básica (push):**
+   
+Para navegar de uma página para outra, você usa o método `Navigator.push`. Ele coloca a nova página no topo da pilha de navegação, permitindo que o usuário volte para a página anterior.
+
+#### Exemplo:
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(builder: (context) => SegundaPagina()),
+);
+```
+
+No exemplo acima, o `Navigator.push` leva o usuário da página atual para `SegundaPagina`.
+
+### 2. **Voltar para a página anterior (pop):**
+
+Para retornar à página anterior, você pode usar o método `Navigator.pop`, que remove a página atual do topo da pilha e volta para a anterior.
+
+#### Exemplo:
+```dart
+Navigator.pop(context);
+```
+
+### 3. **Substituir uma página (pushReplacement):**
+
+Se você quiser navegar para uma nova página e substituir a página atual (remover a anterior da pilha), use `pushReplacement`.
+
+#### Exemplo:
+```dart
+Navigator.pushReplacement(
+  context,
+  MaterialPageRoute(builder: (context) => SegundaPagina()),
+);
+```
+
+Aqui, a navegação leva para `SegundaPagina`, e a página anterior é removida, de modo que o botão de voltar não estará presente.
+
+### 4. **Navegar para uma nova página e remover todas as anteriores (pushAndRemoveUntil):**
+
+Se você quiser remover todas as páginas anteriores da pilha de navegação e garantir que o usuário não possa voltar a elas, use `pushAndRemoveUntil`.
+
+#### Exemplo:
+```dart
+Navigator.pushAndRemoveUntil(
+  context,
+  MaterialPageRoute(builder: (context) => NovaPagina()),
+  (Route<dynamic> route) => false,
+);
+```
+
+No exemplo acima, `NovaPagina` se torna a única página na pilha de navegação, e o usuário não pode voltar.
+
+### 5. **Navegação nomeada (Named Routes):**
+
+Você também pode configurar rotas nomeadas, que permitem navegar usando strings em vez de criar rotas manualmente. Isso é útil para projetos maiores, onde há muitas telas.
+
+#### Configuração de rotas nomeadas:
+```dart
+void main() {
+  runApp(MaterialApp(
+    initialRoute: '/',
+    routes: {
+      '/': (context) => PrimeiraPagina(),
+      '/segunda': (context) => SegundaPagina(),
+    },
+  ));
+}
+```
+
+#### Navegar para uma rota nomeada:
+```dart
+Navigator.pushNamed(context, '/segunda');
+```
+
+### 6. **Passando dados entre páginas:**
+
+Você pode passar dados de uma página para outra usando o `Navigator.push`.
+
+#### Exemplo de envio de dados:
+```dart
+Navigator.push(
+  context,
+  MaterialPageRoute(
+    builder: (context) => SegundaPagina(dados: 'Dados Enviados'),
+  ),
+);
+```
+
+Na `SegundaPagina`, você recebe os dados:
+
+```dart
+class SegundaPagina extends StatelessWidget {
+  final String dados;
+
+  SegundaPagina({required this.dados});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text("Segunda Página")),
+      body: Center(child: Text(dados)),
+    );
+  }
+}
+```
